@@ -1,0 +1,247 @@
+Revision history for perl-CELL
+
+NOTE: versions 0.001-0.040 were developed in the 'dochazka' project on
+SourceForge (under the top-level directory 'api'). Versions 0.041 and
+later are in the perl-CELL project repo.
+
+0.001   2014-JAN-01 16:47
+- start coding
+
+0.002   2014-JAN-01 19:43
+- add "version bump" functionality to dev.sh script
+
+0.003   2014-JAN-01 23:22
+- work on initialization
+
+0.004   2014-JAN-02 15:13
+- revamp CELL.pm
+- use Log::Fast instead of Sys::Syslog
+- some changes to top-level README
+
+0.005   2014-JAN-03 11:52
+- break out logging into CELL::Log
+- lots of work on CELL::Config
+
+0.006   2014-JAN-03 15:23
+- finished _import_sysconfig in CELL::Config
+
+0.007   2014-JAN-03 23:01
+- refactored _import_sysconfig ( broke it into pieces, 
+  iterate over array of subroutine references )
+
+0.008   2014-JAN-04 17:00
+- first crack at Config::Error (inspired by brian d foy)
+
+0.009   2014-JAN-07 12:48
+- point release
+
+0.010    2014-JAN-07 16:57
+- refactored CELL.pm
+- refactored and merged Error.pm and Log.pm
+- started refactoring Config.pm
+
+0.011    2014-JAN-08 03:28
+- got 'make test' running on refactored modules
+- WIP: ticket #25
+
+0.012    2014-JAN-08 10:38
+- fix argument passing issue with CELL::Error->new
+
+0.013    2014-JAN-08 16:18
+- first crack at CELL::Message (mostly POD for now)
+
+0.014    2014-JAN-09 17:37
+- CELL::Message now working; testing in progress
+
+0.015    2014-JAN-09 21:54
+- CELL::Config tweaked 
+- ready to continue working ticket #13
+
+0.016    2014-JAN-10 23:45
+- Config.pm now loading core configuration parameters
+
+0.017    2014-JAN-11 05:40
+- Message.pm refinements
+- bring in OBS stuff
+
+0.018    2014-JAN-11 20:09
+- work on OBS stuff (including new release.sh script)
+
+0.019    2014-JAN-11 22:27
+- close tickets #13 and #17
+
+0.020  2014-JAN-12 15:50
+- started testing api/bin/release.sh
+
+0.021  2014-JAN-12 15:56
+- minor change to api/bin/release.sh
+
+0.022  2014-JAN-12 16:26
+- implement CELL->config method
+
+0.023  2014-JAN-12 18:16
+- implement CELL::Config::config and CELL->config
+- implement CELL::Config::set_meta and CELL->set_meta
+- basic unit tests for the above
+
+0.024  2014-JAN-12 21:19
+- add more unit tests and configuration parameters 
+
+0.025  2014-JAN-13 09:00  
+- working on ticket #38
+
+0.026  2014-JAN-13 10:29
+- move former api/bin/ to api-dev/ to keep api/ free of distractions
+
+0.027  2014-JAN-13 10:32
+- another tweak on api-dev/release.sh
+
+0.028  2014-JAN-13 12:09
+- Make API pass manifest.t
+
+0.029  2014-JAN-13 12:52
+- add unit test for CELL::Util and fix bug in that module
+
+0.030  2014-JAN-13 15:30
+- rename CELL::Error to CELL::Status
+
+0.031  2014-JAN-13 21:47
+- stop using tags after they possibly cause origin to get into detached
+  HEAD state
+
+0.032  2014-JAN-14 10:14
+- revamped Status.pm to enable "OK" status level 
+
+0.033  2014-JAN-14 11:58
+- add class diagram
+- start working on ticket #44 "Add an 'OK' status to CELL::Status"
+- refactor CELL.pm
+
+0.034  2014-JAN-14 15:47
+- revamp Status.pm 
+
+0.035  2014-JAN-14 16:56
+- started splitting off CELL::Config::Meta
+
+0.036  2014-JAN-14 21:31
+- finished initial write-up of Meta.pm 
+- NEXT: modify Config.pm to use it
+
+0.037  2014-JAN-15 11:00
+- working on ticket #44 
+
+0.038  2014-JAN-15 16:21
+- working tickets
+
+0.039  2014-JAN-15 17:07
+- now passing all unit tests
+
+0.040  2014-JAN-16 03:43
+- Log.pm: add new 'arbitrary' function so we can write higher-level log
+  messages without requiring Status.pm
+- Status.pm: avert possible circular dependency problems
+
+0.041  2014-JAN-17 19:00
+- change all occurrences of 'dochazka' to 'CELL'
+
+0.042  2014-JAN-17 19:21
+- debugging release scripts
+
+0.043  2014-JAN-17 23:19
+- started initial write-up of CELL.pm (mainly POD)
+
+0.044  2014-JAN-21 09:44
+- started implementing new features:
+  - multiple config files
+  - flexible names
+  - config files can be in subdirectories of config dir
+  - meta parameters in config files instead of hard-coded
+  - messages in config files instead of hard-coded
+
+0.045  2014-JAN-21 12:02
+- Config.pm: implement get_param() and set_meta()
+- Load.pm: first crack at find_files()
+
+0.046  2014-JAN-22 00:12
+- debugging in progress
+
+0.047  2014-JAN-22 00:27
+- start testing Message.pm
+
+0.048  2014-JAN-22 20:07
+- implemented unit test for CELL::Load::find_files
+- fixed some bugs found by unit testing
+
+0.049  2014-JAN-22 22:42
+- move get_and_load_config_files to CELL::Load and prepare for use with
+  'message' type config files
+
+0.050  2014-JAN-22 23:17
+- make Load.pm deal with messages better 
+
+0.051  2014-JAN-23 23:03
+- new Test.pm module for re-useable testing code
+- change t/03-load.pm to use the new module
+- start working on new format for message config files
+  (staging/message-slurp.plx)
+
+0.052  2014-JAN-25 11:58
+- put message file parsing code into Load.pm
+- wrote some unit tests for parsing message files and configuration files
+- started CELL Localization Guide (in staging/)
+
+0.053  2014-JAN-27 11:39
+- implement caching in find_files
+- pass over (and log) duplicate config parameters
+
+0.054  2014-JAN-27 21:52
+- put finishing touches on Load.pm
+- add a number of unit tests for Load.pm
+
+0.055  2014-JAN-28 11:58
+- put standard CELL configuration files in dist/config/
+- fixed a weird glitch in dist/dev.sh
+
+0.056  2014-JAN-28 12:44
+- debugging 
+
+0.057  2014-JAN-28 15:22
+- in Load.pm, make parse_message_file get language tag from the
+  filename, so the user doesn't have to enter a language tag for each
+  and every message she defines
+
+0.058  2014-JAN-28 15:23
+- fix release script
+- add language tags verbiage to Localization Guide
+
+0.059  2014-JAN-28 17:00
+- work on Localization Guide 
+
+0.060  2014-JAN-29 09:53
+- caressing Load.pm and getting ready to start testing CELL::Config::init 
+
+0.061  2014-JAN-29 11:40
+- unit tests for Load.pm more or less done
+
+0.062  2014-JAN-29 13:20
+- Config.pm: _import_config strip double quotes as well as single
+- Log.pm: do not use CELL::Status, convert package variable to state
+- Status.pm: include message object in status object
+- add more unit tests (almost ready to test CELL::Config::init)
+
+0.063  2014-JAN-29 16:23
+- CELL::Config::init working now
+- CELL::Message::init working now 
+
+0.064  2014-JAN-30 10:02
+- CELL.pm: work on POD and code
+- Log.pm: accept lower/mixed-case level
+- Util.pm: no newline in timestamp
+- 07-cell.t: new unit tests for CELL.pm
+- Config.pm: fix regex
+
+0.065  2014-JAN-30 13:02
+- Config.pm: don't use meta param for re-entrantness
+- Message.pm: make init be re-entrant and report errors
+- put unit test of CELL::Message::init in the right file
+

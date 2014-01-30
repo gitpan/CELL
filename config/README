@@ -1,0 +1,22 @@
+CELL configuration directory
+
+Quickstart/executive summary:
+- CELL's own configuration files are in the CELL/ subdirectory
+- create as many configuration files as you want, in whatever
+  directory structure you like: CELL will walk the tree
+- point CELL to the root of the tree - three options:
+  1. CELL_CONFIGDIR environment variable
+  2. ~/.cell/CELL.conf (SITECONF_PATH="...")
+  3. /etc/sysconfig/CELL (SITECONF_PATH="...")
+- CELL distinguishes four different types of configuration parameters
+  by matching filenames to the following regular expressions:
+  1. 'meta' ^.+_MetaConfig.pm$
+  2. 'core' ^.+_Config.pm$
+  3. 'site' ^.+_SiteConfig.pm$
+  4. 'message' ^.+_Message(_[^_]+){0,1}.conf$
+- filenames that don't match any of the above regexes will be passed
+  over (ignored)
+
+For details, refer to the CELL Localization Guide, which can be found
+in the doc/ directory of the CELL source code distribution.
+
